@@ -62,15 +62,16 @@ def _build_context(db: MockDatabase, sku: str, recommended_qty: int) -> Purchase
 
 def _get_llm_explanation(decision: PurchaseDecision, ctx: PurchaseContext) -> str:
     """
-    Optionally use OpenAI to generate a human-readable explanation.
+    Optionally use Google Gemini to generate a human-readable explanation.
     Falls back to a template-based explanation if no API key is available.
     """
-    api_key = os.environ.get("OPENAI_API_KEY", "")
+    api_key = os.environ.get("GEMINI_API_KEY", "")
 
-    if api_key and api_key != "your-openai-api-key-here":
+    if api_key and api_key != "your-gemini-api-key-here":
         try:
-            import openai
-            client = openai.OpenAI(api_key=api_key)
+            import google.generativeai as genai
+            genai.configure(api_key=api_key)
+            model = genai.GenerativeModel("gemini-2.0-flash")
 
             prompt = f"""You are a purchasing analyst. Summarize this purchase decision in 2-3 clear sentences.
 
@@ -86,13 +87,14 @@ Total cost: ${decision.details['total_cost']:.2f}
 
 Be concise and focus on the business rationale."""
 
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=200,
-                temperature=0.3,
+            response = model.generate_content(
+                prompt,
+                generation_config=genai.types.GenerationConfig(
+                    max_output_tokens=200,
+                    temperature=0.3,
+                ),
             )
-            return response.choices[0].message.content.strip()
+            return response.text.strip()
         except Exception as e:
             pass  # Fall through to template
 

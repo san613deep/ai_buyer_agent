@@ -20,7 +20,7 @@ Purchasing systems generate buy recommendations, but these recommendations shoul
 | **Rules Engine** | Deterministic calculations: need, MOQ, budget, storage constraints |
 | **Mock Database** | JSON-based data store for products, inventory, suppliers, POs |
 | **Post-Action Validator** | Feedback loop — validates POs after creation |
-| **OpenAI API** (optional) | Human-readable explanations (falls back to templates) |
+| **Gemini API** (optional) | Human-readable explanations (falls back to templates) |
 
 ## Approach
 
@@ -216,7 +216,7 @@ docker-compose up --build
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `OPENAI_API_KEY` | No | Enables LLM-powered explanations. Falls back to templates. |
+| `GEMINI_API_KEY` | No | Enables LLM-powered explanations (free at [aistudio.google.com](https://aistudio.google.com/apikey)). Falls back to templates. |
 
 ## Project Structure
 
@@ -255,7 +255,7 @@ docker-compose up --build
 3. **No authentication** — Out of scope for this assignment
 4. **No persistent audit trail** — Decisions are logged in-memory only
 5. **Static demand forecast** — Real systems would use dynamic forecasting
-6. **LLM explanations are optional** — System is fully functional without OpenAI API key
+6. **LLM explanations are optional** — System is fully functional without Gemini API key
 7. **Frontend uses CDN** — React/Bootstrap loaded from CDN (no build step needed)
 
 ## What Would Change for Production
