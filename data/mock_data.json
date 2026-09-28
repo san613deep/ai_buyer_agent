@@ -1,0 +1,127 @@
+{
+  "products": {
+    "SKU-001": {
+      "sku": "SKU-001",
+      "name": "Industrial Ball Bearing 6205",
+      "category": "mechanical_parts",
+      "unit_cost": 12.50,
+      "unit_price": 22.00,
+      "weight_kg": 0.15,
+      "volume_m3": 0.0002
+    },
+    "SKU-002": {
+      "sku": "SKU-002",
+      "name": "Stainless Steel Hex Bolt M10x40",
+      "category": "fasteners",
+      "unit_cost": 0.85,
+      "unit_price": 1.60,
+      "weight_kg": 0.035,
+      "volume_m3": 0.00003
+    },
+    "SKU-003": {
+      "sku": "SKU-003",
+      "name": "Hydraulic Cylinder Seal Kit",
+      "category": "hydraulics",
+      "unit_cost": 45.00,
+      "unit_price": 78.00,
+      "weight_kg": 0.50,
+      "volume_m3": 0.001
+    },
+    "SKU-004": {
+      "sku": "SKU-004",
+      "name": "Carbon Steel Pipe DN50",
+      "category": "piping",
+      "unit_cost": 32.00,
+      "unit_price": 55.00,
+      "weight_kg": 8.5,
+      "volume_m3": 0.012
+    }
+  },
+
+  "suppliers": {
+    "SUP-101": {
+      "id": "SUP-101",
+      "name": "BearingWorld GmbH",
+      "products": ["SKU-001"],
+      "min_order_qty": 100,
+      "lead_time_days": 14,
+      "reliability_score": 0.95,
+      "payment_terms": "Net 30"
+    },
+    "SUP-102": {
+      "id": "SUP-102",
+      "name": "FastenPro Ltd",
+      "products": ["SKU-002"],
+      "min_order_qty": 500,
+      "lead_time_days": 7,
+      "reliability_score": 0.92,
+      "payment_terms": "Net 15"
+    },
+    "SUP-103": {
+      "id": "SUP-103",
+      "name": "HydraSeals Inc",
+      "products": ["SKU-003"],
+      "min_order_qty": 20,
+      "lead_time_days": 21,
+      "reliability_score": 0.88,
+      "payment_terms": "Net 45"
+    },
+    "SUP-104": {
+      "id": "SUP-104",
+      "name": "SteelPipe SA",
+      "products": ["SKU-004"],
+      "min_order_qty": 50,
+      "lead_time_days": 28,
+      "reliability_score": 0.90,
+      "payment_terms": "Net 30"
+    }
+  },
+
+  "inventory": {
+    "SKU-001": { "on_hand": 350, "reserved": 50, "available": 300 },
+    "SKU-002": { "on_hand": 2000, "reserved": 200, "available": 1800 },
+    "SKU-003": { "on_hand": 15, "reserved": 5, "available": 10 },
+    "SKU-004": { "on_hand": 80, "reserved": 20, "available": 60 }
+  },
+
+  "demand_forecast": {
+    "SKU-001": { "daily_avg": 40, "next_30_days": 1200, "next_60_days": 2400, "safety_stock": 200 },
+    "SKU-002": { "daily_avg": 150, "next_30_days": 4500, "next_60_days": 9000, "safety_stock": 500 },
+    "SKU-003": { "daily_avg": 3, "next_30_days": 90, "next_60_days": 180, "safety_stock": 15 },
+    "SKU-004": { "daily_avg": 5, "next_30_days": 150, "next_60_days": 300, "safety_stock": 30 }
+  },
+
+  "open_purchase_orders": [
+    {
+      "po_id": "PO-2001",
+      "sku": "SKU-001",
+      "supplier_id": "SUP-101",
+      "quantity": 500,
+      "status": "confirmed",
+      "expected_delivery": "2026-09-28",
+      "unit_cost": 12.50
+    },
+    {
+      "po_id": "PO-2002",
+      "sku": "SKU-002",
+      "supplier_id": "SUP-102",
+      "quantity": 3000,
+      "status": "shipped",
+      "expected_delivery": "2026-09-18",
+      "unit_cost": 0.85
+    }
+  ],
+
+  "budget": {
+    "total_monthly": 50000.00,
+    "spent_this_month": 31500.00,
+    "remaining": 18500.00,
+    "currency": "USD"
+  },
+
+  "storage": {
+    "total_capacity_m3": 500.0,
+    "used_m3": 380.0,
+    "available_m3": 120.0
+  }
+}
