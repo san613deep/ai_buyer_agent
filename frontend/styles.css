@@ -1,0 +1,406 @@
+/* ── AI Purchasing Agent — Stylesheet ──────────────────────────── */
+
+:root {
+  --bg-primary: #0f1117;
+  --bg-card: #1a1d27;
+  --bg-card-hover: #22263a;
+  --accent: #6c63ff;
+  --accent-light: #8b85ff;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --text-primary: #e8e8ef;
+  --text-secondary: #8b8fa3;
+  --border-color: #2a2e3d;
+  --gradient-1: linear-gradient(135deg, #6c63ff 0%, #3b82f6 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.app-header {
+  background: linear-gradient(135deg, #161927 0%, #1e2235 100%);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 0;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-header .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ── Cards ──────────────────────────────────────────────────────── */
+.card-dark {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease;
+}
+
+.card-dark:hover {
+  border-color: var(--accent);
+}
+
+.card-dark h2,
+.card-dark h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* ── Form Controls ──────────────────────────────────────────────── */
+.form-select-dark,
+.form-control-dark {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select-dark:focus,
+.form-control-dark:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+  outline: none;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.form-select-dark option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────── */
+.btn-accent {
+  background: var(--gradient-1);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-accent:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.4);
+  color: #fff;
+}
+
+.btn-accent:disabled {
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-approve {
+  background: var(--gradient-success);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.btn-approve:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+  color: #fff;
+}
+
+.btn-outline-light-custom {
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  background: transparent;
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.btn-outline-light-custom:hover {
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Decision Badges ────────────────────────────────────────────── */
+.badge-decision {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-ACCEPT { background: var(--gradient-success); color: #fff; }
+.badge-MODIFY { background: var(--gradient-warning); color: #000; }
+.badge-REJECT { background: var(--gradient-danger); color: #fff; }
+.badge-INVESTIGATE { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: #fff; }
+
+.badge-risk {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-risk-LOW { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+.badge-risk-MEDIUM { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+.badge-risk-HIGH { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+
+/* ── Data Grid ──────────────────────────────────────────────────── */
+.data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.data-item .label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.2rem;
+}
+
+.data-item .value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ── Explanation Box ────────────────────────────────────────────── */
+.explanation-box {
+  background: rgba(108, 99, 255, 0.06);
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* ── Validation Result ──────────────────────────────────────────── */
+.validation-pass {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+
+.validation-fail {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+
+/* ── Constraints / Reasons List ────────────────────────────────── */
+.reason-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reason-list li {
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.reason-list li:last-child {
+  border-bottom: none;
+}
+
+.reason-list li::before {
+  content: "→ ";
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+/* ── Product Selector Cards ─────────────────────────────────────── */
+.product-option {
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.product-option:hover {
+  border-color: var(--accent);
+  background: rgba(108, 99, 255, 0.04);
+}
+
+.product-option.selected {
+  border-color: var(--accent);
+  background: rgba(108, 99, 255, 0.08);
+}
+
+.product-option .product-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.product-option .product-sku {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ── Spinner ────────────────────────────────────────────────────── */
+.spinner-accent {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid rgba(108, 99, 255, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── PO Table ───────────────────────────────────────────────────── */
+.po-table {
+  width: 100%;
+  font-size: 0.82rem;
+}
+
+.po-table th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.po-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+.po-status {
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.po-status-confirmed { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+.po-status-shipped { background: rgba(59, 130, 246, 0.15); color: var(--info); }
+.po-status-pending_approval { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+.po-status-validation_failed { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .data-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Approval Banner ────────────────────────────────────────────── */
+.approval-banner {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* ── Section Divider ────────────────────────────────────────────── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 1rem 0;
+}
+
+/* ── Workflow Steps ─────────────────────────────────────────────── */
+.workflow-steps {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.workflow-step {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.workflow-step.active {
+  background: rgba(108, 99, 255, 0.12);
+  color: var(--accent-light);
+  border-color: rgba(108, 99, 255, 0.25);
+}
+
+.workflow-step.done {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+}
+
+.workflow-arrow {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+}
